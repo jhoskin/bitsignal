@@ -1,7 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitsignal.web", "bitsignal.web\bitsignal.web.csproj", "{BE053A42-3DE8-4E1C-873A-00DD4BDA5B9E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE053A42-3DE8-4E1C-873A-00DD4BDA5B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE053A42-3DE8-4E1C-873A-00DD4BDA5B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE053A42-3DE8-4E1C-873A-00DD4BDA5B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE053A42-3DE8-4E1C-873A-00DD4BDA5B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
