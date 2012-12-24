@@ -43,33 +43,29 @@ namespace bitsignal.web.App_Start
 			//});
 
 			//Enable Authentication
-			//ConfigureAuth(container);
+			ConfigureAuth(container);
 
 			//Register all your dependencies
 			container.Register(new TodoRepository());			
 		}
 
-		/* Uncomment to enable ServiceStack Authentication and CustomUserSession
 		private void ConfigureAuth(Funq.Container container)
 		{
 			var appSettings = new AppSettings();
 
 			//Default route: /auth/{provider}
-			Plugins.Add(new AuthFeature(this, () => new CustomUserSession(),
+			Plugins.Add(new AuthFeature(() => new AuthUserSession(),
 				new IAuthProvider[] {
-					new CredentialsAuthProvider(appSettings), 
-					new FacebookAuthProvider(appSettings), 
-					new TwitterAuthProvider(appSettings), 
-					new BasicAuthProvider(appSettings), 
+					new CredentialsAuthProvider(appSettings)
 				})); 
 
 			//Default route: /register
 			Plugins.Add(new RegistrationFeature()); 
 
 			//Requires ConnectionString configured in Web.Config
-			var connectionString = ConfigurationManager.ConnectionStrings["AppDb"].ConnectionString;
+			var connectionString = ConnStr.Get();
 			container.Register<IDbConnectionFactory>(c =>
-				new OrmLiteConnectionFactory(connectionString, SqlServerOrmLiteDialectProvider.Instance));
+				new OrmLiteConnectionFactory(connectionString, PostgreSqlDialect.Provider));
 
 			container.Register<IUserAuthRepository>(c =>
 				new OrmLiteAuthRepository(c.Resolve<IDbConnectionFactory>()));
@@ -77,11 +73,27 @@ namespace bitsignal.web.App_Start
 			var authRepo = (OrmLiteAuthRepository)container.Resolve<IUserAuthRepository>();
 			authRepo.CreateMissingTables();
 		}
-		*/
 
 		public static void Start()
 		{
 			new AppHost().Init();
 		}
 	}
+
+    public class ConnStr
+    {
+        public static string Get()
+        {
+            var uriString = ConfigurationManager.AppSettings["ELEPHANTSQL_URL"] ??
+                ConfigurationManager.AppSettings["LOCAL_URL"];
+            var uri = new Uri(uriString);
+            var db = uri.AbsolutePath.Trim('/');
+            var user = uri.UserInfo.Split(':')[0];
+            var passwd = uri.UserInfo.Split(':')[1];
+            var port = uri.Port > 0 ? uri.Port : 5432;
+            var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
+                uri.Host, db, user, passwd, port);
+            return connStr;
+        }
+    }
 }
