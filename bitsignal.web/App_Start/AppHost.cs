@@ -51,27 +51,35 @@ namespace bitsignal.web.App_Start
 
 		private void ConfigureAuth(Funq.Container container)
 		{
-			var appSettings = new AppSettings();
+            try
+            {
 
-			//Default route: /auth/{provider}
-			Plugins.Add(new AuthFeature(() => new AuthUserSession(),
-				new IAuthProvider[] {
+                var appSettings = new AppSettings();
+
+                //Default route: /auth/{provider}
+                Plugins.Add(new AuthFeature(() => new AuthUserSession(),
+                    new IAuthProvider[] {
 					new CredentialsAuthProvider(appSettings)
-				})); 
+				}));
 
-			//Default route: /register
-			Plugins.Add(new RegistrationFeature()); 
+                //Default route: /register
+                Plugins.Add(new RegistrationFeature());
 
-			//Requires ConnectionString configured in Web.Config
-			var connectionString = ConnStr.Get();
-			container.Register<IDbConnectionFactory>(c =>
-				new OrmLiteConnectionFactory(connectionString, PostgreSqlDialect.Provider));
+                //Requires ConnectionString configured in Web.Config
+                var connectionString = ConnStr.Get();
+                container.Register<IDbConnectionFactory>(c =>
+                    new OrmLiteConnectionFactory(connectionString, PostgreSqlDialect.Provider));
 
-			container.Register<IUserAuthRepository>(c =>
-				new OrmLiteAuthRepository(c.Resolve<IDbConnectionFactory>()));
+                container.Register<IUserAuthRepository>(c =>
+                    new OrmLiteAuthRepository(c.Resolve<IDbConnectionFactory>()));
 
-			var authRepo = (OrmLiteAuthRepository)container.Resolve<IUserAuthRepository>();
-			authRepo.CreateMissingTables();
+                var authRepo = (OrmLiteAuthRepository)container.Resolve<IUserAuthRepository>();
+                authRepo.CreateMissingTables();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex.ToString());
+            }
 		}
 
 		public static void Start()
