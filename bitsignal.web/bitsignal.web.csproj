@@ -106,6 +106,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\js\backbone.marionette\backbone.babysitter.js" />
+    <Content Include="Content\js\backbone.marionette\backbone.eventbinder.js" />
+    <Content Include="Content\js\backbone.marionette\backbone.js" />
+    <Content Include="Content\js\backbone.marionette\backbone.marionette.js" />
+    <Content Include="Content\js\backbone.marionette\backbone.marionette.min.js" />
+    <Content Include="Content\js\backbone.marionette\backbone.wreqr.js" />
+    <Content Include="Content\js\backbone.marionette\core\amd\backbone.marionette.js" />
+    <Content Include="Content\js\backbone.marionette\core\amd\backbone.marionette.min.js" />
+    <Content Include="Content\js\backbone.marionette\core\backbone.marionette.js" />
+    <Content Include="Content\js\backbone.marionette\core\backbone.marionette.min.js" />
+    <Content Include="Content\js\backbone.marionette\jquery.js" />
+    <Content Include="Content\js\backbone.marionette\json2.js" />
+    <Content Include="Content\js\backbone.marionette\underscore.js" />
+    <Content Include="Content\js\require.js" />
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="default.htm" />
     <Content Include="Web.config">
