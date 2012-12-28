@@ -106,6 +106,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\js\app.js">
+      <DependentUpon>app.coffee</DependentUpon>
+    </Content>
     <Content Include="Content\js\backbone.marionette\backbone.babysitter.js" />
     <Content Include="Content\js\backbone.marionette\backbone.eventbinder.js" />
     <Content Include="Content\js\backbone.marionette\backbone.js" />
@@ -119,6 +122,9 @@
     <Content Include="Content\js\backbone.marionette\jquery.js" />
     <Content Include="Content\js\backbone.marionette\json2.js" />
     <Content Include="Content\js\backbone.marionette\underscore.js" />
+    <Content Include="Content\js\main.js">
+      <DependentUpon>main.coffee</DependentUpon>
+    </Content>
     <Content Include="Content\js\require.js" />
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="default.htm" />
@@ -133,6 +139,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Content\js\main.coffee" />
+    <Content Include="Content\js\app.coffee" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
