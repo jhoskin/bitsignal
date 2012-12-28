@@ -106,6 +106,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\bootstrap-responsive.css" />
+    <Content Include="Content\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\js\app.js">
       <DependentUpon>app.coffee</DependentUpon>
     </Content>
@@ -122,6 +128,8 @@
     <Content Include="Content\js\backbone.marionette\jquery.js" />
     <Content Include="Content\js\backbone.marionette\json2.js" />
     <Content Include="Content\js\backbone.marionette\underscore.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\main.js">
       <DependentUpon>main.coffee</DependentUpon>
     </Content>

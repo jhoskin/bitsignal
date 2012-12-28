@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
     <title>Bitcoin price alerts</title>
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="Content/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
     <h1>Bitcoin price alerts</h1>
     <div id="register"></div>
-    <script data-main="Content/js/main.js" src="Content/js/require.js"></script> 
-    
-    
-    <script id="registerTmpl" type="text/html">
+    <script data-main="Content/js/main.js" src="Content/js/require.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <div ng-controller="RegisterController">
+        <h2>Register for free</h2>
         <form>
-            <input type="text" value="Test"/>
+            <fieldset>
+                <label>
+                    Username:</label>
+                <input type="text" ng-model="user.UserName" />
+                <label>
+                    Email address:</label>
+                <input type="email" ng-model="user.Email" />
+                <label>
+                    Password:</label>
+                <input type="password" ng-model="user.Password" />
+                <label>
+                    Confirm password:</label>
+                <input type="password" ng-model="user.confirmPass" />
+                <button ng-click="register(user)">Register</button>
+            </fieldset>
         </form>
-    </script>
+    </div>
+
 </body>
 </html>
