@@ -1,16 +1,19 @@
 (function() {
+  var mod;
 
-  window.RegisterController = function($scope, $http) {
+  mod = angular.module('bitsignal', []);
+
+  mod.controller('registerController', function($scope, $http) {
     return $scope.register = function(user) {
-      return $http.post('Register', user).success(function(data, status) {
+      return $http.post('register', user).success(function(data, status) {
         return console.log(data);
       }).error(function(data, status) {
         return console.log(data);
       });
     };
-  };
+  });
 
-  window.LoginController = function($scope, $http) {
+  mod.controller('loginController', function($scope, $http) {
     return $scope.login = function(user) {
       return $http.post('auth/credentials', user).success(function(data, status) {
         return console.log(data);
@@ -18,6 +21,6 @@
         return console.log(data);
       });
     };
-  };
+  });
 
 }).call(this);

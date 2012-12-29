@@ -1,13 +1,14 @@
+mod = angular.module 'bitsignal', []
 
-window.RegisterController = ($scope, $http) ->
+mod.controller 'registerController', ($scope, $http) ->
 	$scope.register = (user) ->
-		$http.post('Register', user).
+		$http.post('register', user).
 		success((data, status) ->
 			console.log data).
 		error((data, status) ->
 			console.log data)
 	
-window.LoginController = ($scope, $http) ->
+mod.controller 'loginController', ($scope, $http) ->
 	$scope.login = (user) ->
 		$http.post('auth/credentials', user).
 		success((data, status) ->
