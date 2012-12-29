@@ -3,6 +3,7 @@
 Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
+*.dll
 *.exe
 *.pdb
 *.user
@@ -32,17 +33,6 @@ _ReSharper*/
 *.vsmdi
 packages
 /sys$command
-/Aaco.Operations/Aaco.Operations.Web.FrontendTests/tools/testdb_schema.sql
-/Aaco.Operations/Aaco.Operations.Web/Logs
 *.ncrunch*
-/Aaco.Operations/Aaco.Operations.Web/ReportCache
-/Aaco.Operations/Aaco.Operations.Database.AspNetDb/Sandbox/Aaco_Operations_Database.ldf
-/Aaco.Operations/Aaco.Operations.Database.AspNetDb/Sandbox/Aaco_Operations_Database.mdf
 *.orig
-.sass-cache/
-Aaco.Operations/_TeamCity.Aaco.Operations/
 *.dotCover
-InitialFeedlotStockData*.xls
-*.png
-/SpiritOfTasmaniaDemo/*.dll
-/SpiritOfTasmaniaDemo/Content/js/*.min.js

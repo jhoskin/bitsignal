@@ -7,4 +7,11 @@ window.RegisterController = ($scope, $http) ->
 		error((data, status) ->
 			console.log data)
 	
+window.LoginController = ($scope, $http) ->
+	$scope.register = (user) ->
+		$http.post('auth/credentials', user).
+		success((data, status) ->
+			console.log data).
+		error((data, status) ->
+			console.log data)
 	
