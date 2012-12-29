@@ -11,7 +11,7 @@
   };
 
   window.LoginController = function($scope, $http) {
-    return $scope.register = function(user) {
+    return $scope.login = function(user) {
       return $http.post('auth/credentials', user).success(function(data, status) {
         return console.log(data);
       }).error(function(data, status) {
