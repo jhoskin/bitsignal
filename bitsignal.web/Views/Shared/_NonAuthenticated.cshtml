@@ -1,0 +1,36 @@
+﻿<form ng-controller="RegisterController" class="form-horizontal">
+    <h3>Register now, it's free!
+    </h3>
+    <div class="control-group">
+        <label for="txtUsername">Username:</label>
+        <input type="text" name="txtUsername" ng-model="user.UserName" />
+        <label for="txtEmail">
+            Email address:</label>
+        <input type="email" name="txtEmail" ng-model="user.Email" />
+        <label for="txtPassword">
+            Password:</label>
+        <input type="password" name="txtPassword" ng-model="user.Password" />
+        <label for="txtPasswordConfirm">
+            Confirm password:</label>
+        <input type="password" name="txtPasswordConfirm" ng-model="user.confirmPass" />
+        <pre>json = {{user}}</pre>
+    </div>
+    <div class="control-group">
+        <button class="btn" ng-click="register(user)">Register</button>
+    </div>
+</form>
+<form ng-controller="LoginController" class="form-horizontal">
+    <h3>Existing user? Login here
+    </h3>
+    <div class="control-group">
+        <label for="txtUsername">Username:</label>
+        <input type="text" name="txtUsername" ng-model="user.UserName" />
+        <label for="txtPassword">
+            Password:</label>
+        <input type="password" name="txtPassword" ng-model="user.Password" />
+    </div>
+    <div class="control-group">
+        <button class="btn" ng-click="login(user)">Login</button>
+    </div>
+</form>
+

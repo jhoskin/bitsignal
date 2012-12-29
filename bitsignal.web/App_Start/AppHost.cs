@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using ServiceStack.Configuration;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
+using ServiceStack.Razor;
 using ServiceStack.ServiceInterface;
 using ServiceStack.ServiceInterface.Auth;
 using ServiceStack.ServiceInterface.ServiceModel;
 using ServiceStack.WebHost.Endpoints;
+using bitsignal.web.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(bitsignal.web.App_Start.AppHost), "Start")]
 
@@ -26,17 +28,16 @@ namespace bitsignal.web.App_Start
 		: AppHostBase
 	{		
 		public AppHost() //Tell ServiceStack the name and where to find your web services
-			: base("StarterTemplate ASP.NET Host", typeof(HelloService).Assembly) { }
+			: base("Bitcoin price alerts", typeof(HomeService).Assembly) { }
 
 		public override void Configure(Funq.Container container)
 		{
 			//Set JSON web services to return idiomatic JSON camelCase properties
-			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
+			//ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 		
 			//Configure User Defined REST Paths
-			Routes
-			  .Add<Hello>("/hello")
-			  .Add<Hello>("/hello/{Name*}");
+            //Routes
+            //  .Add<HomeRequest>("/");
 
 			//Uncomment to change the default ServiceStack configuration
 			//SetConfig(new EndpointHostConfig {
@@ -45,8 +46,10 @@ namespace bitsignal.web.App_Start
 			//Enable Authentication
 			ConfigureAuth(container);
 
+            Plugins.Add(new RazorFormat());
+
 			//Register all your dependencies
-			container.Register(new TodoRepository());			
+			//container.Register(new TodoRepository());			
 		}
 
 		private void ConfigureAuth(Funq.Container container)
