@@ -28,7 +28,7 @@ namespace bitsignal.web.App_Start
 		: AppHostBase
 	{		
 		public AppHost() //Tell ServiceStack the name and where to find your web services
-			: base("Bitcoin price alerts", typeof(HomeService).Assembly) { }
+			: base("Bitcoin price alerts", typeof(AlertsService).Assembly) { }
 
 		public override void Configure(Funq.Container container)
 		{
