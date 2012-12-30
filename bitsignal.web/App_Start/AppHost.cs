@@ -71,7 +71,7 @@ namespace bitsignal.web.App_Start
                 //Requires ConnectionString configured in Web.Config
                 var connectionString = ConnStr.Get();
                 container.Register<IDbConnectionFactory>(c =>
-                    new OrmLiteConnectionFactory(connectionString, PostgreSqlDialect.Provider));
+                    new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider));
 
                 container.Register<IUserAuthRepository>(c =>
                     new OrmLiteAuthRepository(c.Resolve<IDbConnectionFactory>()));
@@ -95,16 +95,8 @@ namespace bitsignal.web.App_Start
     {
         public static string Get()
         {
-            var uriString = ConfigurationManager.AppSettings["ELEPHANTSQL_URL"] ??
-                ConfigurationManager.AppSettings["LOCAL_URL"];
-            var uri = new Uri(uriString);
-            var db = uri.AbsolutePath.Trim('/');
-            var user = uri.UserInfo.Split(':')[0];
-            var passwd = uri.UserInfo.Split(':')[1];
-            var port = uri.Port > 0 ? uri.Port : 5432;
-            var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
-                uri.Host, db, user, passwd, port);
-            return connStr;
+            return ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"] ??
+                ConfigurationManager.AppSettings["LOCAL_DB"];
         }
     }
 }
