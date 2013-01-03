@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using ServiceStack.ServiceInterface.Auth
+@{
+    var currentSession = GetSession<AuthUserSession>();
+}
+<!DOCTYPE html>
 <html ng-app="bitsignal">
 <head>
     <title>Bitcoin price alerts</title>
@@ -9,6 +13,7 @@
 </head>
 <body>
     <noscript>Javascript is required for this application.</noscript>
+    <span ng-init="authenticated = @currentSession.IsAuthenticated.ToString().ToLower()"/>
     <div class="container">
         <div class="hero-unit">
             <div>
@@ -24,7 +29,8 @@
                 @RenderBody()
             </div>
             <div class="span4">
-                @Html.Partial("_NonAuthenticated")
+                <div ng-cloak ng-show="authenticated">@Html.Partial("_Authenticated")</div>
+                <div ng-cloak ng-hide="authenticated">@Html.Partial("_NonAuthenticated")</div>
             </div>
         </div>
     </div>

@@ -16,7 +16,8 @@
   mod.controller('loginController', function($scope, $http) {
     return $scope.login = function(user) {
       return $http.post('auth/credentials', user).success(function(data, status) {
-        return console.log(data);
+        console.log(data);
+        return $scope.authenticated = true;
       }).error(function(data, status) {
         return console.log(data);
       });
