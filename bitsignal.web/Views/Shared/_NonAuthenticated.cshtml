@@ -1,35 +1,35 @@
-﻿<form ng-controller="registerController" class="form-horizontal">
+﻿<form data-ng-controller="registerController" class="form-horizontal">
     <h3>Register now, it's free!
     </h3>
     <div class="control-group">
         <label for="txtUsername">Username:</label>
-        <input type="text" name="txtUsername" ng-model="user.UserName" />
+        <input type="text" name="txtUsername" data-ng-model="user.UserName" />
         <label for="txtEmail">
             Email address:</label>
-        <input type="email" name="txtEmail" ng-model="user.Email" />
+        <input type="email" name="txtEmail" data-ng-model="user.Email" />
         <label for="txtPassword">
             Password:</label>
-        <input type="password" name="txtPassword" ng-model="user.Password" />
+        <input type="password" name="txtPassword" data-ng-model="user.Password" />
         <label for="txtPasswordConfirm">
             Confirm password:</label>
-        <input type="password" name="txtPasswordConfirm" ng-model="user.confirmPass" />
+        <input type="password" name="txtPasswordConfirm" data-ng-model="user.confirmPass" />
     </div>
     <div class="control-group">
-        <button class="btn" ng-click="register(user)">Register</button>
+        <button class="btn" data-ng-click="register(user)">Register</button>
     </div>
 </form>
-<form ng-controller="loginController" class="form-horizontal">
+<form data-ng-controller="loginController" class="form-horizontal">
     <h3>Existing user? Login here
     </h3>
     <div class="control-group">
         <label for="txtUsername">Username:</label>
-        <input type="text" name="txtUsername" ng-model="user.UserName" />
+        <input type="text" name="txtUsername" data-ng-model="user.UserName" />
         <label for="txtPassword">
             Password:</label>
-        <input type="password" name="txtPassword" ng-model="user.Password" />
+        <input type="password" name="txtPassword" data-ng-model="user.Password" />
     </div>
     <div class="control-group">
-        <button class="btn" ng-click="login(user)">Login</button>
+        <button class="btn" data-ng-click="login(user)">Login</button>
     </div>
 </form>
 
